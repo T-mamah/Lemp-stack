@@ -85,10 +85,12 @@ Commercial support is available at
 
 2. Secondly, lets test how our server responds to the request from the internet. run:
 
+
 `http://<Public-Ip-Address>:80`
 
 
 If you see the page above, then our webserver was successful installed and accessible through our firewall. Double Yay!!
+
 
 
 ## Installing MYSQL
@@ -121,10 +123,10 @@ mysql>
 
 ```
 
-
 It’s recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script, you will set a password for the root user, using mysql_native_password as default authentication method.run:
 
 `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>'`
+   
 
 Exit mysql shell with:
 
@@ -134,24 +136,30 @@ Exit mysql shell with:
 Start the interactive script by running:
 
 `$ sudo mysql_secure_installation`
+   
 
 This will ask if you want to configure the **Validate password plugin**
->Enabling this feature is something of a judgment call. I
+>Enabling this feature is something of a judgment call. 
 Answer Y for yes, or anything else to continue without enabling.
 
 Let's check if we are able to login to the MYSQL console:
+   
 
 `$ sudo mysql -p`
 
+
 To exit
+   
 
 `exit`
+   
 
 >Notice that you need to provide a password to connect as the root user.
 For increased security, it’s best to have dedicated user accounts with less expansive privileges set up for every database, especially if you plan on having multiple databases hosted on your server.
 
 
 Our MySQL server is now installed and secured. Next, we will install PHP, the final component in the LEMP stack...Awesome
+   
 
 
 ##  Installing PHP
