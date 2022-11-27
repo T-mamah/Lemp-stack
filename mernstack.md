@@ -36,19 +36,23 @@ To verify that Nginx has been installed and is running as a service in Ubuntu ru
 
 `$sudo systemctl status nginx`
 
-If it is green and running, you have launched a web server in the clouds! Yay! :purple_heart::confetti_ball::fireworks:
+**If it is green and running, you have launched a web server in the clouds! Yay!** :purple_heart: :confetti_ball: :fireworks:
 
+ 
  ![image](assets/2..png)
+
 
 To allow traffic from port 80, which is the default port for most web applications
 
 >We need to edit inbound firewall rule and allow traffic on TCP port 80 on our EC2 instance. TCP port 22 is open by default.
 
+
 ![image](assets/1..png)
+
 
 **Our server is running and we can access it from any IP Address and locally**
 
-1. First, lets try to access it locally from our ubuntu shell by running:
+lets try to access it locally from our ubuntu shell by running:
 
 `$curl http://localhost:80`
 
@@ -82,14 +86,15 @@ Commercial support is available at
 </html>
 
 ```
-
-2. Secondly, lets test how our server responds to the request from the internet. run:
+ Secondly, lets test how our server responds to the request from the internet. run:
 
 `http://<Public-Ip-Address>:80`
 
+
 ![image](assets/3..png)
 
-If you see the page above, then our webserver was successful installed and accessible through our firewall. Double Yay!!✨✨
+
+**If you see the page above, then our webserver was successful installed and accessible through our firewall. Double Yay!!**✨✨
 
 ---
 
@@ -147,10 +152,9 @@ To exit
    
 `mysql> exit`
    
->Notice that you need to provide a password to connect as the root user.
-For increased security, it’s best to have dedicated user accounts with less expansive privileges set up for every database, especially if you plan on having multiple databases hosted on your server.
+>Notice that you need to provide a password to connect as the root user. For increased security, it’s best to have dedicated user accounts with less expansive privileges set up for every database, especially if you plan on having multiple databases hosted on your server.
 
-Our MySQL server is now installed and secured. Next, we will install PHP, the final component in the LEMP stack...Awesome:clap:
+**Our MySQL server is now installed and secured. Next, we will install PHP, the final component in the LEMP stack...Awesome** :clap:
 
 ---
    
@@ -163,7 +167,7 @@ We have Nginx installed to serve our content and MySQL to store and manage  our 
 
 `$ sudo apt install php-fpm php-mysql`
 
-PHP components have now been installed!:boom: Let's move to step 4 :boom: :boom:
+**PHP components have now been installed!:boom: Let's move to step 4** :boom: :boom:
 
 ---
 
@@ -187,8 +191,7 @@ Now let,s open a new configuration file in Nginx’s sites-available directory
 Paste in the following bare-bones configuration:
 
 ```
-
-server {
+server{
         listen 80;
         server_name projectLEMP www.projectLEMP;
         root /var/www/projectLEMP;
@@ -236,7 +239,7 @@ Reload Nginx to apply the changes:
 
 `$ sudo systemctl reload nginx`
 
-Our website is now active:exclamation:, but the web root /var/www/projectLEMP is still empty.Create an index.html file in that location so that we can test that our new server block works as expected:
+Our website is now active :exclamation:, but the web root /var/www/projectLEMP is still empty.Create an index.html file in that location so that we can test that our new server block works as expected:
 
 ```
 $ sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
@@ -249,7 +252,9 @@ Now let" go to browser and try to open our website URL using the instanace publi
 	
 You should see somthing like this:
 	
-![image](assets/3..png)
+	
+![image](assets/4..png)
+	
 	
 **Lemp Stack is now configured!**
 
@@ -273,7 +278,9 @@ We can now access the web browser using the domain name or public IP address we�
 
 `http://<server_domain_or_IP>./info.php`
 
+
 ![image](assets/5..png)
+
 
 After checking the relevant information about our PHP server, it’s best to remove the file you created as it contains sensitive information about your PHP environment and your Ubuntu server. You can use rm to remove that file:
 
@@ -372,7 +379,9 @@ To confirm that the data was successfully saved to your table, run:
 
 You’ll see the following output:
 
+
 ![image](assets/5..png)
+
 
 After confirming that you have valid data in your test table, you can exit the MySQL console:
 
@@ -418,10 +427,12 @@ Now, let's go and access it in out web browser
 
 You should see a page like this, showing the content you’ve inserted in your test table:
 
+
 ![image](assets/7..png)
 
 
-That means our PHP environment is ready to connect and interact with your MySQL server.:tada::tada::tada:
+
+That means our PHP environment is ready to connect and interact with your MySQL server. :tada: :tada: :tada:
 
 
 
