@@ -1,6 +1,6 @@
-# MERN Stack on Ubuntu 22.04 
+# LEMP Stack on Ubuntu 22.04 
 
-The MERN stack is an acronym for MongoDB, Express, React / Redux, and Node.js. The MERN stack is one of the most popular JavaScript stacks for building modern single-page web applications (SPA).
+(Linux, Nginx, MySQL, PHP)
 
 ### Prerequisites
 1. An Ubuntu VM (In this tutorial we're using an Ubuntu 22.04 on AWS EC2 instance.
