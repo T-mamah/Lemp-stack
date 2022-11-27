@@ -380,7 +380,7 @@ To confirm that the data was successfully saved to your table, run:
 You’ll see the following output:
 
 
-![image](assets/5..png)
+![image](assets/6..png)
 
 
 After confirming that you have valid data in your test table, you can exit the MySQL console:
