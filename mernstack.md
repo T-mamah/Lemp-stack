@@ -1,4 +1,4 @@
-# MERN Stack on Ubuntu 20.04 
+# MERN Stack on Ubuntu 22.04 
 
 The MERN stack is an acronym for MongoDB, Express, React / Redux, and Node.js. The MERN stack is one of the most popular JavaScript stacks for building modern single-page web applications (SPA).
 
@@ -18,7 +18,7 @@ This tutorial is broadly divided into 6 categories
    
    ## Installing the Nginx web Server
 
-   To display web pages, we are going to implore Nginx, a high-performance web server
+To display web pages, we are going to implore Nginx, a high-performance web server
 
 Update ubuntu
 
@@ -36,17 +36,17 @@ To verify that Nginx has been installed and is running as a service in Ubuntu ru
 
 `$sudo systemctl status nginx`
 
+If it is green and running, you have launched a web server in the clouds! Yay! :purple_heart::confetti_ball::fireworks:
 
-
-If it is green and running, you have launched a web server in the clouds! Yay! :purple_heart:
-
+![image]assets/2..png)
 
 To allow traffic from port 80, which is the default port for most web applications
+
 >We need to edit inbound firewall rule and allow traffic on TCP port 80 on our EC2 instance. TCP port 22 is open by default.
 
+![image]assets/1..png)
 
-Our server is running and we can access it from any IP Address 
-and locally.
+**Our server is running and we can access it from any IP Address and locally**
 
 1. First, lets try to access it locally from our ubuntu shell by running:
 
@@ -85,14 +85,13 @@ Commercial support is available at
 
 2. Secondly, lets test how our server responds to the request from the internet. run:
 
-
 `http://<Public-Ip-Address>:80`
 
+![image]assets/3..png)
 
-If you see the page above, then our webserver was successful installed and accessible through our firewall. Double Yay!!
+If you see the page above, then our webserver was successful installed and accessible through our firewall. Double Yay!!✨✨
 
 ---
-
 
 
 ## Installing MYSQL
@@ -104,7 +103,6 @@ Now that our web server is up and running, we need to install a *database manage
 Login to the MYSQL console:
 
 `$ sudo mysql`
-
 
 ```
 Output:
@@ -125,59 +123,45 @@ mysql>
 
 ```
 
-It’s recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script, you will set a password for the root user, using mysql_native_password as default authentication method.run:
+>It’s recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script, you will set a password for the root user, using mysql_native_password as default authentication method.run:
 
 `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>'`
    
-
 Exit mysql shell with:
 
 `exit`
-
 
 Start the interactive script by running:
 
 `$ sudo mysql_secure_installation`
    
-
-This will ask if you want to configure the **Validate password plugin**
->Enabling this feature is something of a judgment call. 
+>This will ask if you want to configure the **Validate password plugin**
+Enabling this feature is something of a judgment call. 
 Answer Y for yes, or anything else to continue without enabling.
 
 Let's check if we are able to login to the MYSQL console:
    
-
 `$ sudo mysql -p`
-
 
 To exit
    
-
-`exit`
+`mysql> exit`
    
-
 >Notice that you need to provide a password to connect as the root user.
 For increased security, it’s best to have dedicated user accounts with less expansive privileges set up for every database, especially if you plan on having multiple databases hosted on your server.
 
-
-Our MySQL server is now installed and secured. Next, we will install PHP, the final component in the LEMP stack...Awesome
+Our MySQL server is now installed and secured. Next, we will install PHP, the final component in the LEMP stack...Awesome:clap:
 
 ---
    
 
-
 ##  Installing PHP
 
+We have Nginx installed to serve our content and MySQL to store and manage  our data. We need to install PHP to process code and generate dynamic content for our web server. While Apache embeds the PHP interpreter in each request, Nginx requires an external program to handle PHP processing and act as a bridge between the PHP interpreter itself and the web server. This allows for a better overall performance in most PHP-based websites, but it requires additional configuration.
 
-We have Nginx installed to serve our content and MySQL to store and manage  our data. We need to install PHP to process code and generate dynamic content for our web server.
+>We need to install **php-fpm**, which stands for *“PHP fastCGI process manager”*, and tell Nginx to pass PHP requests to this software. Additionally, we need **php-mysql**, a PHP module that allows PHP to communicate with MySQL-based databases. *Core PHP packages will automatically be installed as dependencies.* Run;
 
->While Apache embeds the PHP interpreter in each request, Nginx requires an external program to handle PHP processing and act as a bridge between the PHP interpreter itself and the web server. This allows for a better overall performance in most PHP-based websites, but it requires additional configuration
-
-We need to install **php-fpm**, which stands for *“PHP fastCGI process manager”*, and tell Nginx to pass PHP requests to this software. Additionally, we need **php-mysql**, a PHP module that allows PHP to communicate with MySQL-based databases. 
-
-*Core PHP packages will automatically be installed as dependencies.* Run;
-
-`$sudo apt install php-fpm php-mysql`
+`$ sudo apt install php-fpm php-mysql`
 
 PHP components have now been installed!:boom: Let's move to step 4 :boom: :boom:
 
@@ -224,19 +208,17 @@ server {
         deny all;
         }
 
-}
 ```
 
-Save and close the file. If you’re using nano, you can do so by typing *CTRL+X* and then *y* and *ENTER* to confirm.
-
+Save and close the file. If you’re using nano, you can do so by typing **CTRL+X** and then **y** and **ENTER** to confirm.
 
 Activate the configuration by linking to the config file from Nginx’s sites-enabled directory:
 
 `$ sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/`
 
 To test for syntax error, run;
+	
 `$ sudo nginx -t`
-
 
 ```
 Output:
@@ -254,7 +236,7 @@ Reload Nginx to apply the changes:
 
 `$ sudo systemctl reload nginx`
 
-Your new website is now active, but the web root /var/www/projectLEMP is still empty.Create an index.html file in that location so that we can test that our new server block works as expected:
+Our website is now active:exclamation:, but the web root /var/www/projectLEMP is still empty.Create an index.html file in that location so that we can test that our new server block works as expected:
 
 ```
 $ sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
@@ -264,10 +246,12 @@ $ sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/m
 Now let" go to browser and try to open our website URL using the instanace public IP address:
 
 `$ http://<Public-IP-Address>:80`
-
+	
 You should see somthing like this:
-
-Lemp Stack is now configured!
+	
+![image]assets/4..png)
+	
+**Lemp Stack is now configured!**
 
 ---
 ## Testing PHP with Nginx
@@ -285,18 +269,18 @@ Paste this in:
 phpinfo();
 
 ```
-
-
 We can now access the web browser using the domain name or public IP address we’ve set up in our Nginx configuration file, followed by /info.php:
 
-
 `http://<server_domain_or_IP>./info.php`
+
+![image]assets/5..png)
 
 After checking the relevant information about our PHP server, it’s best to remove the file you created as it contains sensitive information about your PHP environment and your Ubuntu server. You can use rm to remove that file:
 
 `$ sudo rm /var/www/your_domain/info.php`
 
 ---
+
 
 ## Retrieving data from MYSQL database with PHP
 
@@ -316,17 +300,13 @@ The following command creates a new user named example_user, using mysql_native_
 
 Define the user's password
 
-```
-mysql> CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+`mysql> CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';`
 
-```
 Now we need to give this user permission over the example_database database:
 
-```
-mysql> GRANT ALL ON example_database.* TO 'example_user'@'%';
+`mysql> GRANT ALL ON example_database.* TO 'example_user'@'%';`
 
-```
-This will give the example_user user full privileges over the example_database database, while preventing this user from creating or modifying other databases on our server.
+>This will give the example_user user full privileges over the example_database database, while preventing this user from creating or modifying other databases on our server.
 
 Now exit the MySQL shell with:
 
@@ -373,7 +353,6 @@ mysql>
 
 Next, we’ll create a test table named todo_list. From the MySQL console, run the following statement:
 
-
 ```
 CREATE TABLE example_database.todo_list (
 mysql> 	item_id INT AUTO_INCREMENT,
@@ -393,6 +372,7 @@ To confirm that the data was successfully saved to your table, run:
 
 You’ll see the following output:
 
+![image]assets/5..png)
 
 After confirming that you have valid data in your test table, you can exit the MySQL console:
 
@@ -430,13 +410,15 @@ try {
 
 Save and close the file when you are done editing.
 
-Almost done!
+**Almost done!**
 
 Now, let's go and access it in out web browser
 
 `http://<Public_domain_or_IP>/todo_list.php`
 
 You should see a page like this, showing the content you’ve inserted in your test table:
+
+![image]assets/7..png)
 
 
 That means our PHP environment is ready to connect and interact with your MySQL server.:tada::tada::tada:
