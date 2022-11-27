@@ -38,13 +38,13 @@ To verify that Nginx has been installed and is running as a service in Ubuntu ru
 
 If it is green and running, you have launched a web server in the clouds! Yay! :purple_heart::confetti_ball::fireworks:
 
-![image]assets/2..png)
+ ![image](assets/2..png)
 
 To allow traffic from port 80, which is the default port for most web applications
 
 >We need to edit inbound firewall rule and allow traffic on TCP port 80 on our EC2 instance. TCP port 22 is open by default.
 
-![image]assets/1..png)
+![image](assets/1..png)
 
 **Our server is running and we can access it from any IP Address and locally**
 
@@ -87,7 +87,7 @@ Commercial support is available at
 
 `http://<Public-Ip-Address>:80`
 
-![image]assets/3..png)
+![image](assets/3..png)
 
 If you see the page above, then our webserver was successful installed and accessible through our firewall. Double Yay!!✨✨
 
@@ -249,7 +249,7 @@ Now let" go to browser and try to open our website URL using the instanace publi
 	
 You should see somthing like this:
 	
-![image]assets/4..png)
+![image](assets/3..png)
 	
 **Lemp Stack is now configured!**
 
@@ -273,7 +273,7 @@ We can now access the web browser using the domain name or public IP address we�
 
 `http://<server_domain_or_IP>./info.php`
 
-![image]assets/5..png)
+![image](assets/5..png)
 
 After checking the relevant information about our PHP server, it’s best to remove the file you created as it contains sensitive information about your PHP environment and your Ubuntu server. You can use rm to remove that file:
 
@@ -372,7 +372,7 @@ To confirm that the data was successfully saved to your table, run:
 
 You’ll see the following output:
 
-![image]assets/5..png)
+![image](assets/5..png)
 
 After confirming that you have valid data in your test table, you can exit the MySQL console:
 
@@ -418,7 +418,7 @@ Now, let's go and access it in out web browser
 
 You should see a page like this, showing the content you’ve inserted in your test table:
 
-![image]assets/7..png)
+![image](assets/7..png)
 
 
 That means our PHP environment is ready to connect and interact with your MySQL server.:tada::tada::tada:
