@@ -94,7 +94,7 @@ Commercial support is available at
 ![image](assets/3..png)
 
 
-**If you see the page above, then our webserver was successful installed and accessible through our firewall. Double Yay!!**✨✨
+**If you see the page above, then our webserver was successful installed and accessible through our firewall. Double Yay!!✨✨**
 
 ---
 
@@ -163,7 +163,7 @@ To exit
 
 We have Nginx installed to serve our content and MySQL to store and manage  our data. We need to install PHP to process code and generate dynamic content for our web server. While Apache embeds the PHP interpreter in each request, Nginx requires an external program to handle PHP processing and act as a bridge between the PHP interpreter itself and the web server. This allows for a better overall performance in most PHP-based websites, but it requires additional configuration.
 
->We need to install **php-fpm**, which stands for *“PHP fastCGI process manager”*, and tell Nginx to pass PHP requests to this software. Additionally, we need **php-mysql**, a PHP module that allows PHP to communicate with MySQL-based databases. *Core PHP packages will automatically be installed as dependencies.* Run;
+We need to install **php-fpm**, which stands for *“PHP fastCGI process manager”*, and tell Nginx to pass PHP requests to this software. Additionally, we need **php-mysql**, a PHP module that allows PHP to communicate with MySQL-based databases. *Core PHP packages will automatically be installed as dependencies.* Run;
 
 `$ sudo apt install php-fpm php-mysql`
 
