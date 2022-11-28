@@ -190,7 +190,7 @@ Now let,s open a new configuration file in Nginx’s sites-available directory
 
 Paste in the following bare-bones configuration:
 
-```php
+```
 server{
         listen 80;
         server_name projectLEMP www.projectLEMP;
@@ -395,7 +395,7 @@ The following PHP script connects to the MySQL database and queries for the cont
 
 Paste this in todo_list.php script:
 
-```
+```php
 
 ?php
 $user = "example_user";
