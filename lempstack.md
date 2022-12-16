@@ -158,7 +158,6 @@ To exit
 
 ---
    
-
 ##  Installing PHP
 
 We have Nginx installed to serve our content and MySQL to store and manage  our data. We need to install PHP to process code and generate dynamic content for our web server. While Apache embeds the PHP interpreter in each request, Nginx requires an external program to handle PHP processing and act as a bridge between the PHP interpreter itself and the web server. This allows for a better overall performance in most PHP-based websites, but it requires additional configuration.
@@ -170,7 +169,6 @@ We need to install **php-fpm**, which stands for *“PHP fastCGI process manager
 **PHP components have now been installed!:boom: Let's move to step 4** :boom: :boom:
 
 ---
-
 
 ## Confiquring Nginx to use PHP processor
 
